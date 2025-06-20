@@ -77,8 +77,8 @@ public class UserService {
         return dto;
     }
     // 회원 조회
-    public Optional<UserResponseDto> getUser(Long userid) {
-        return userRepository.findById(userid)
+    public Optional<UserResponseDto> getUser(Long userId) {
+        return userRepository.findById(userId)
                 .map(user -> {
                     UserResponseDto dto = new UserResponseDto();
                     dto.setUserId(user.getUserId());

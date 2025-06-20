@@ -20,7 +20,7 @@ public class Thread {
     private Long threadId; //Long은 64비트 숫자 자료형(Long 타입)
 
     @ManyToOne //한 회원(Users)이 여러 게시글(Thread)을 쓸 수 있다는 뜻
-    @JoinColumn(name = "userid") //DB에서 연결할 컬럼명 지정
+    @JoinColumn(name = "userId") //DB에서 연결할 컬럼명 지정
     private User user;
 
     @Column(nullable = false)

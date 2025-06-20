@@ -37,8 +37,8 @@ public class TrafficService {
         return dto;
     }
 
-    public Optional<TrafficDto> getTraffic(Long trafficid) {
-        return trafficRepository.findById(trafficid)
+    public Optional<TrafficDto> getTraffic(Long trafficId) {
+        return trafficRepository.findById(trafficId)
                 .map(t -> TrafficDto.builder()
                         .trafficId(t.getTrafficId())
                         .tourId(t.getTour().getTourId())

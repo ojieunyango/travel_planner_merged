@@ -60,7 +60,7 @@ public class NotificationService {
 
     public List<NotificationDto> getUserNotifications(Long userId) {
         List<Notification> notifications =
-                notificationRepository.findByUserUseridOrderByCreateDateDesc(userId);
+                notificationRepository.findByUserUserIdOrderByCreateDateDesc(userId);
 
         return notifications.stream()
                 .map(n -> {

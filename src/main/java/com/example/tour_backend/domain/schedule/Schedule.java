@@ -1,5 +1,6 @@
 package com.example.tour_backend.domain.schedule;
 
+import com.example.tour_backend.domain.mapentity.MapEntity;
 import com.example.tour_backend.domain.tour.Tour;
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +13,7 @@ import java.sql.Time;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
+
 
 @Entity
 @Table(name = "schedule")
@@ -48,7 +49,7 @@ public class Schedule {
     private LocalDateTime modifiedDate;
 
     @OneToMany(mappedBy = "schedule")
-    private List<Map> maps;
+    private List<MapEntity> maps;
 
     @Builder
     public Schedule(Tour tour, String scheduleTitle, String content,
@@ -62,6 +63,6 @@ public class Schedule {
         this.endTime = endTime;
         this.createDate = createDate;
         this.modifiedDate = modifiedDate;
-//        this.maps = maps;
+
     }
 }

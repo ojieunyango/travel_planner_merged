@@ -26,9 +26,9 @@ public class UserController {
     }
 
     // 회원 조회 (마이페이지 등)
-    @GetMapping("/{userid}")
-    public ResponseEntity<UserResponseDto> getUser(@PathVariable Long userid) {
-        return userService.getUser(userid)
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserResponseDto> getUser(@PathVariable Long userId) {
+        return userService.getUser(userId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

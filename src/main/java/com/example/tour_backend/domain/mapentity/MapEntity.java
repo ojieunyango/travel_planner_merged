@@ -1,4 +1,4 @@
-package com.example.tour_backend.domain.map;
+package com.example.tour_backend.domain.mapentity;
 
 import com.example.tour_backend.domain.schedule.Schedule;
 import com.example.tour_backend.domain.tour.Tour;
@@ -7,11 +7,11 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "map")
+@Table(name = "mapentity")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Map {
+public class MapEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mapId;
@@ -31,7 +31,7 @@ public class Map {
     private LocalDateTime createDate;
 
     @Builder
-    public Map(Schedule schedule, Tour tour, String location, LocalDateTime createDate) {
+    public MapEntity(Schedule schedule, Tour tour, String location, LocalDateTime createDate) {
         this.schedule = schedule;
         this.tour = tour;
         this.location = location;
