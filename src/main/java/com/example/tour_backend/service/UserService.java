@@ -25,8 +25,8 @@ public class UserService {
     private final JwtTokenProvider jwtTokenProvider;    // JWT 토큰 생성용 클래스 (직접 구현 필요)
 
     public JwtResponse login(LoginRequestDto loginRequestDto) {
-        //  1) 사용자 조회 (이메일 기준 예시)
-        User user = userRepository.findByEmail(loginRequestDto.getEmail())
+        //  1) 사용자 조회
+        User user = (User) userRepository.findByUsername(loginRequestDto.getUsername())
                 .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
         // 2) 비밀번호 검증
         if (!passwordEncoder.matches(loginRequestDto.getPassword(), user.getPassword())) {
@@ -49,7 +49,7 @@ public class UserService {
             throw new RuntimeException("이미 존재하는 닉네임입니다.");
         }
         // 사용자명 중복 체크
-        if (userRepository.findByUsername(requestDto.getUsername()).isPresent()) {
+        if (userRepository.findByName(requestDto.getName()).isPresent()) {
             throw new RuntimeException("이미 존재하는 사용자명입니다.");
         }
         // 비밀번호 암호화해서 저장
